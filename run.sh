@@ -7,5 +7,5 @@ servers_file="sv.txt"
 while IFS=: read -r ip user password; do
     # ایجاد یک دستور SSH که از passwordless SSH استفاده می‌کند
     sshpass -p "$password" ssh -o StrictHostKeyChecking=no "$user@$ip" \
-    "bash <(curl -Ls https://raw.githubusercontent.com/iERROR0098/marzban-node/main/node.sh)"
+    "curl -Ls https://raw.githubusercontent.com/iERROR0098/Cloud-init/main/run.sh | dos2unix | bash"
 done < "$servers_file"
